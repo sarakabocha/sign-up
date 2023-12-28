@@ -1,0 +1,277 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter&family=Oswald:wght@500&display=swap");
+
+h1,
+legend,
+button {
+  font-family: "Oswald", sans-serif;
+  text-transform: uppercase;
+  margin-bottom: 1em;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  background-color: #ccc;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  display: flex;
+  background-image: url("background.svg");
+}
+
+.background {
+  width: 50%;
+  height: 100vh;
+  background-image: url("images/cat.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+li {
+  list-style: none;
+}
+
+form li + li {
+  margin-top: 1em;
+}
+
+label {
+  display: inline-block;
+}
+
+section {
+  padding-bottom: 2em;
+}
+
+form {
+  margin: 0 auto;
+  width: 50%;
+
+  padding: 4em;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  overflow: scroll;
+}
+
+.form-row {
+  margin-bottom: 2em;
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  flex-basis: calc(50% - 8px);
+}
+
+.form-row label {
+  margin-bottom: 0.5em;
+}
+
+.form-check {
+  display: flex;
+  flex-direction: row-reverse;
+  width: 100%;
+  align-items: center;
+}
+
+.checkbox-label {
+  width: 100%;
+  margin-left: 1em;
+}
+
+.form-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1em;
+}
+
+input,
+button {
+  border-radius: 1em;
+  padding: 2em;
+  box-sizing: border-box;
+}
+
+input {
+  width: 100%;
+
+  border: none;
+
+  background-color: transparent;
+}
+
+.button,
+.footer,
+.form-radio {
+  display: flex;
+  flex-basis: 100%;
+}
+
+button {
+  width: 100%;
+  border: none;
+  background-color: blueviolet;
+  cursor: pointer;
+  font-size: 1.2em;
+  color: white;
+}
+
+input[type="text"] {
+  background-color: rgb(255, 70, 255);
+}
+
+input[type="tel"] {
+  background-color: rgb(255, 148, 34);
+}
+
+input[type="password"] {
+  background-color: rgb(63, 76, 255);
+}
+
+input[type="email"] {
+  appearance: none;
+  width: 100%;
+  margin: 0;
+  font-family: inherit;
+  background-color: greenyellow;
+}
+
+input[type="email"]:invalid {
+  background-color: greenyellow;
+}
+
+fieldset {
+  border: none;
+  width: 100%;
+}
+
+input[type="radio"] {
+  appearance: none;
+  position: relative;
+  width: 2em;
+  height: 2em;
+  background-color: #ff50e2;
+  border-radius: 2em;
+  /* Adjusts the position of the checkboxes on the text baseline */
+  vertical-align: -2px;
+}
+
+.form-radio label {
+  display: flex;
+  align-items: center;
+  gap: 1em;
+}
+
+input[type="radio"]:checked {
+  background-color: greenyellow;
+}
+
+input[type="radio"]:focus {
+  box-shadow: none;
+}
+
+input[type="radio"]:checked::before {
+  /* Use `visibility` instead of `display` to avoid recalculating layout */
+  visibility: visible;
+}
+
+input[type="radio"]:checked:after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 1em;
+  left: 1em;
+  width: 2em;
+  height: 2em;
+  background-color: #00f;
+  border-radius: 2em;
+}
+
+input[type="checkbox"] {
+  appearance: none;
+  position: relative;
+  width: 2em;
+  height: 2em;
+  background-color: #ddd;
+  border-radius: 1em;
+  /* Adjusts the position of the checkboxes on the text baseline */
+  vertical-align: -2px;
+  /* Set here so that Windows' High-Contrast Mode can override */
+  color: rgb(13, 239, 66);
+}
+
+input[type="checkbox"]::before {
+  content: "✔";
+  position: absolute;
+  font-size: 4em;
+  right: 0em;
+  top: -0.2em;
+  visibility: hidden;
+}
+
+input[type="checkbox"]:checked::before {
+  /* Use `visibility` instead of `display` to avoid recalculating layout */
+  visibility: visible;
+}
+
+input[type="checkbox"]:disabled {
+  border-color: black;
+  background: #ddd;
+  color: gray;
+}
+
+/* This is our style for the invalid fields */
+/* input:invalid {
+  border-color: #900;
+  background-color: #fdd;
+} */
+
+input:focus:invalid {
+  outline: none;
+}
+
+input:focus {
+  outline: none;
+  box-shadow: inset 0px 0px 0px 4px #000;
+}
+
+input:hover,
+button:hover {
+  background-image: linear-gradient(rgba(255, 255, 255, 0.1) 0 0);
+}
+
+/* This is the style of our error messages */
+.error {
+  width: 100%;
+  padding: 0;
+
+  font-size: 80%;
+  color: white;
+  background-color: rgb(255, 85, 85);
+
+  box-sizing: none;
+}
+
+.error.active {
+  padding: 0.3em;
+}
+
+/* Responsive layout - makes the two sides stack vertically */
+@media (max-width: 800px) {
+  .container {
+    flex-direction: column;
+  }
+
+  .background {
+    width: 100%;
+    height: 50vh;
+  }
+
+  form {
+    width: 100%;
+  }
+}
